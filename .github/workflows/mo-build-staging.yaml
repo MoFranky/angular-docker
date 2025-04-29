@@ -65,3 +65,15 @@ jobs:
           containerName: franky-test-deployment
           keyKind: ${{ vars.MO_API_KIND__STAGING }}
           token: ${{ secrets.MO_API_TOKEN__67f85ef645d1e12b3290__STAGING }}
+      - id: releaseWithMogenius-82db31a9d6ee23a16c42
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__STAGING }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: behrang
+          resourceName: custom-pull-secret-test
+          containerName: custom-pull-secret-test
+          keyKind: ${{ vars.MO_API_KIND__STAGING }}
+          token: ${{ secrets.MO_API_TOKEN__82db31a9d6ee23a16c42__STAGING }}
