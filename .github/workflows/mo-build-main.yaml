@@ -89,3 +89,15 @@ jobs:
           containerName: tuedede
           keyKind: ${{ vars.MO_API_KIND__MAIN }}
           token: ${{ secrets.MO_API_TOKEN__949a1d021676df97ceb7__MAIN }}
+      - id: releaseWithMogenius-7a81a9d6529a58e25e2b
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__MAIN }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: frankyproject-test-dzpujh
+          resourceName: deployment-test
+          containerName: deployment-test
+          keyKind: ${{ vars.MO_API_KIND__MAIN }}
+          token: ${{ secrets.MO_API_TOKEN__7a81a9d6529a58e25e2b__MAIN }}
