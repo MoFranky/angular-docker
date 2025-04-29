@@ -65,3 +65,15 @@ jobs:
           containerName: angular-docker-test
           keyKind: ${{ vars.MO_API_KIND__MAIN }}
           token: ${{ secrets.MO_API_TOKEN__8069a17fd9610e059437__MAIN }}
+      - id: releaseWithMogenius-f67a920b1a33c277a4e2
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__MAIN }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: frankyproject-test-dzpujh
+          resourceName: franky-test-deploy
+          containerName: franky-test-deploy
+          keyKind: ${{ vars.MO_API_KIND__MAIN }}
+          token: ${{ secrets.MO_API_TOKEN__f67a920b1a33c277a4e2__MAIN }}
