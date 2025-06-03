@@ -65,18 +65,6 @@ jobs:
           containerName: franky-angular-starter-dev
           keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
           token: ${{ secrets.MO_API_TOKEN__f22d1e57db55edefd5ac__DEVELOP }}
-      - id: releaseWithMogenius-4f7a875a0e72ba761bab
-        name: Release with mogenius
-        uses: mogenius/mogenius-release-action@v1
-        with:
-          dev: true
-          image: ${{ vars.MO_IMAGE_NAME__DEVELOP }}:${{ env.VERSION }}
-          kind: Deployment
-          namespace: franky-test-space
-          resourceName: frankytester
-          containerName: frankytester
-          keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
-          token: ${{ secrets.MO_API_TOKEN__4f7a875a0e72ba761bab__DEVELOP }}
       - id: releaseWithMogenius-dfd1866c8c25e2f0247c
         name: Release with mogenius
         uses: mogenius/mogenius-release-action@v1
