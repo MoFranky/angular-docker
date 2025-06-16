@@ -89,3 +89,15 @@ jobs:
           containerName: franky-war-hier
           keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
           token: ${{ secrets.MO_API_TOKEN__74952ac990137da76c9f__DEVELOP }}
+      - id: releaseWithMogenius-996f755a2f4139c1e8d6
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__DEVELOP }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: frankyproject-test-dzpujh
+          resourceName: franky-test-deploy
+          containerName: franky-test-deploy
+          keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
+          token: ${{ secrets.MO_API_TOKEN__996f755a2f4139c1e8d6__DEVELOP }}
