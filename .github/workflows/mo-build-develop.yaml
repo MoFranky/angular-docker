@@ -101,3 +101,15 @@ jobs:
           containerName: franky-test-deploy
           keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
           token: ${{ secrets.MO_API_TOKEN__996f755a2f4139c1e8d6__DEVELOP }}
+      - id: releaseWithMogenius-4cb99eb23b29a6fd9ac7
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__DEVELOP }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: franky-test-space
+          resourceName: my-container-image-fuck9
+          containerName: nginx
+          keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
+          token: ${{ secrets.MO_API_TOKEN__4cb99eb23b29a6fd9ac7__DEVELOP }}
