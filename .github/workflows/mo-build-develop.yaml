@@ -77,18 +77,6 @@ jobs:
           containerName: frankytest1234
           keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
           token: ${{ secrets.MO_API_TOKEN__dfd1866c8c25e2f0247c__DEVELOP }}
-      - id: releaseWithMogenius-74952ac990137da76c9f
-        name: Release with mogenius
-        uses: mogenius/mogenius-release-action@v1
-        with:
-          dev: true
-          image: ${{ vars.MO_IMAGE_NAME__DEVELOP }}:${{ env.VERSION }}
-          kind: Deployment
-          namespace: behrang
-          resourceName: franky-war-hier
-          containerName: franky-war-hier
-          keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
-          token: ${{ secrets.MO_API_TOKEN__74952ac990137da76c9f__DEVELOP }}
       - id: releaseWithMogenius-996f755a2f4139c1e8d6
         name: Release with mogenius
         uses: mogenius/mogenius-release-action@v1
