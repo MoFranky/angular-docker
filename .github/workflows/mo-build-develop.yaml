@@ -51,7 +51,7 @@ jobs:
           tags: |
             ${{ vars.MO_IMAGE_NAME__DEVELOP }}:${{ env.VERSION }}
             ${{ vars.MO_IMAGE_NAME__DEVELOP }}:latest
-          build-args: VERSION=${{ env.VERSION }}
+          build-args: Tadaaa=HelloFranky
       - id: releaseWithMogenius-f22d1e57db55edefd5ac
         name: Release with mogenius
         uses: mogenius/mogenius-release-action@v1
@@ -100,3 +100,15 @@ jobs:
           containerName: franky
           keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
           token: ${{ secrets.MO_API_TOKEN__bddf99991d2a8ecb754d__DEVELOP }}
+      - id: releaseWithMogenius-ede3f5b4121c15336071
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__DEVELOP }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: podinfo
+          resourceName: fragular
+          containerName: fragular
+          keyKind: ${{ vars.MO_API_KIND__DEVELOP }}
+          token: ${{ secrets.MO_API_TOKEN__ede3f5b4121c15336071__DEVELOP }}
